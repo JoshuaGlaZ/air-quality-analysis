@@ -1,7 +1,4 @@
-from math import pi
 import calendar
-import os
-import re
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -127,7 +124,7 @@ def create_hexbins_temp_df(data_df):
 
 
 
-station_df = pd.read_csv("dashboard/PRSA_Data_stations.csv")
+station_df = pd.read_csv("PRSA_Data_stations.csv")
 station_df['datetime'] = pd.to_datetime(station_df[['year', 'month', 'day', 'hour']])
 station_df.set_index('datetime', inplace=True)
 station_df.reset_index(inplace=True)
