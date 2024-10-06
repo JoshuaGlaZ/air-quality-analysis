@@ -1,4 +1,5 @@
 import calendar
+from pathlib import Path
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -123,8 +124,9 @@ def create_hexbins_temp_df(data_df):
     return data_df[['PM2.5', 'PM10', 'SO2', 'NO2', 'O3', 'TEMP (C)']]
 
 
-
-station_df = pd.read_csv("PRSA_Data_stations.csv")
+root_dir = Path(__file__).parent  
+path = Path(__file__).parent /  "PRSA_Data_stations.csv"  
+station_df = pd.read_csv(path)
 station_df['datetime'] = pd.to_datetime(station_df[['year', 'month', 'day', 'hour']])
 station_df.set_index('datetime', inplace=True)
 station_df.reset_index(inplace=True)
